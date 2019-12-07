@@ -48,8 +48,8 @@ public class MyUserDetailsService implements UserDetailsService {
                 authorityList.add(new SimpleGrantedAuthority(sysPermission.getCode()));
             }
         }
-
-        MyUser myUser = new MyUser(sysUser.getUsername(), passwordEncoder.encode(sysUser.getPassword()), authorityList);
+        String encode = passwordEncoder.encode("123456");
+        MyUser myUser = new MyUser(sysUser.getUsername(), encode, authorityList);
 
         log.info("登录成功！用户: {}", JSON.toJSONString(myUser));
 
